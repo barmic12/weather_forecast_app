@@ -1,4 +1,8 @@
 en:
+  pages:
+    home:
+      main_slogan: 'Weather forecast for thousands of places Worldwide'
+      lead_content: 'Check the weather for choosen places. '
   users:
     created: 'User created.'
     validation_error: 'Validation error.'

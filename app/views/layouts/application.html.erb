@@ -10,6 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">WeatherForecastApp</h3>
+              <nav class="nav nav-masthead">
+                <%= link_to 'Home', root_path, class: 'nav-link active' %>
+              </nav>
+            </div>
+          </div>
+          <%= yield %>
+        </div>
+
+      </div>
+
+    </div>
   </body>
 </html>
