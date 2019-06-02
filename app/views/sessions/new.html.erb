@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-3 col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center"><%= t('users.actions.new') %></h1>
+          <%= render 'form' %>
+
+          <p><%= t('sessions.form.not_registred') %>
+          <%= link_to t('sessions.form.join'), new_registration_path %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

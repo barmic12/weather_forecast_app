@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Registrations feature', type: :request do
+RSpec.describe 'Registrations feature', type: :feature do
   feature 'Visitor signs up' do
     scenario 'with valid email, username and password' do
       signs_up_with('user@example.com', 'user', 'password', 'password')

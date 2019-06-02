@@ -9,3 +9,15 @@ en:
     actions:
       new: 'New user'
       edit: 'Edit'
+  sessions:
+    create: 'Login successfull'
+    validation_error: 'Invalid username or password'
+    delete: 'Logout successfull'
+    form:
+      email: 'Email'
+      password: 'Password'
+      create: 'Log in'
+      logout: 'Log out'
+      sign_in_or_sign_up: 'Sign in or sign up'
+      not_registred: 'Not registred yet?'
+      join: 'Join us'
