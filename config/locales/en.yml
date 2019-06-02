@@ -21,3 +21,8 @@ en:
       sign_in_or_sign_up: 'Sign in or sign up'
       not_registred: 'Not registred yet?'
       join: 'Join us'
+  account_settings:
+    index:
+      header: 'Account settings'
+      remove: 'Remove account'
+      remove_message: 'You have removed your account'

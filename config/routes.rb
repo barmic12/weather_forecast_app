@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  resources :account_settings, only: %i[index] do
+    delete '/destroy', action: 'destroy', on: :collection
+  end
+
   root to: 'static_pages#home'
 end

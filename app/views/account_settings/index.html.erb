@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-3 col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center"><%= t('account_settings.index.header') %></h1>
+          <%= link_to t('account_settings.index.remove'), destroy_account_settings_path, class: 'btn btn-danger', method: :delete %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
