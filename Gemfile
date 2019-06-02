@@ -28,6 +28,7 @@ group :test, :development do
   gem 'shoulda-matchers'
 end
 group :development do
+  gem 'activerecord-import'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', require: false
   gem 'spring'
