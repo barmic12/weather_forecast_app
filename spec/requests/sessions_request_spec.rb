@@ -18,6 +18,18 @@ RSpec.describe 'Sessions requests', type: :request do
         expect(response).to have_http_status(:success)
       end
     end
+
+    context 'for removed user' do
+      before do
+        user = create(:user)
+        log_in_user(user)
+        user.destroy
+      end
+      it 'returns success' do
+        get '/login'
+        expect(response).to have_http_status(:success)
+      end
+    end
   end
 
   describe 'POST #create' do
