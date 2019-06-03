@@ -1,4 +1,5 @@
 class Location < ApplicationRecord
+  attr_accessor :weather
   validates :api_id, :name, :country,
             presence: true
 

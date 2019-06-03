@@ -3,3 +3,4 @@ variable :DATABASE_PASSWORD, :string
 variable :DATABASE_TEST_NAME, :string
 variable :DATABASE_DEVELOPMENT_NAME, :string
 variable :DATABASE_PRODUCTION_NAME, :string
+variable :OPEN_WEATHER_API_KEY, :string

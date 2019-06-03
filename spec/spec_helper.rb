@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!(allow_localhost: true)
+
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|

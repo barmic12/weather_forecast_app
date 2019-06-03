@@ -8,6 +8,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'dotenv-rails'
 gem 'envied'
+gem 'httparty'
 gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
@@ -20,6 +21,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'simplecov'
+  gem 'webmock'
 end
 group :test, :development do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

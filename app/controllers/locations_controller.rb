@@ -8,6 +8,11 @@ class LocationsController < ApplicationController
 
   def following
     @locations = current_user.locations
+    api = OpenWeatherMap::CurrentWeather.new(ENVied.OPEN_WEATHER_API_KEY)
+    @locations.each do |location|
+      data = api.city_by_id(location.api_id)
+      location.weather = api.city_by_id(location.api_id)
+    end
   end
 
   def follow
