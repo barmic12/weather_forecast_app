@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     delete '/destroy', action: 'destroy', on: :collection
   end
 
-  resources :locations, only: %i[index]
+  resources :locations, only: %i[index] do
+    get '/following', action: 'following', on: :collection
+    get '/follow/:id', action: 'follow', on: :collection, as: :follow
+  end
 
   root to: 'static_pages#home'
 end

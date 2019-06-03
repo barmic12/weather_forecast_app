@@ -15,4 +15,16 @@ RSpec.describe 'Locations feature', type: :feature do
       expect(page).to have_css('td', text: city)
     end
   end
+
+  feature 'Visitor add location to following' do
+    before do
+      create(:location)
+    end
+    scenario 'as logged user' do
+      log_in
+      visit '/locations'
+      first('tr > td > span').click_link('Follow')
+      expect(body).to have_css('div.alert-success', text: I18n.t('locations.follow.success'))
+    end
+  end
 end

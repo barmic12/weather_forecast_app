@@ -20,7 +20,12 @@
             <tbody>
               <% @locations.each do |location| %>
                 <tr>
-                  <td><%= location.name %><span class="hint-text"><%= t('locations.index.follow') %></span></td>
+                  <td>
+                    <%= location.name %>
+                    <span class="hint-text">
+                      <%= link_to t('locations.index.follow'), follow_locations_path(location.id) %>
+                    </span>
+                  </td>
                   <td><%= location.country %></td>
                 </tr>
               <% end %>

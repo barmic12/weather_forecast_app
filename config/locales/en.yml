@@ -33,3 +33,7 @@ en:
       country: 'Country'
       follow: 'Follow'
       search: 'Search'
+    follow:
+      success: 'You have subscribed new location'
+      validation_error: 'Error during adding new location'
+      not_exists: 'Given location does not exist'
