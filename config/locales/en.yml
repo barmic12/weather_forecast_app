@@ -26,3 +26,10 @@ en:
       header: 'Account settings'
       remove: 'Remove account'
       remove_message: 'You have removed your account'
+  locations:
+    index:
+      header: 'Locations'
+      city: 'City'
+      country: 'Country'
+      follow: 'Follow'
+      search: 'Search'

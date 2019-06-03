@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center"><%= t('locations.index.header') %></h1>
+          <%= form_tag('/locations', method: :get, id: 'search-form') do %>
+          <div class="form-check form-check-inline">
+            <%= text_field_tag :query, params[:query], { placeholder: t('locations.index.city'), class: 'form-control' } %>
+            <%= submit_tag t('locations.index.search'), class: 'btn btn-info' %>
+          </div>
+          <% end %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th><%= t('locations.index.city') %></th>
+                <th><%= t('locations.index.country') %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @locations.each do |location| %>
+                <tr>
+                  <td><%= location.name %><span class="hint-text"><%= t('locations.index.follow') %></span></td>
+                  <td><%= location.country %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <%= will_paginate @locations %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

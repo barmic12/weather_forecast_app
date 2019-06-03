@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     delete '/destroy', action: 'destroy', on: :collection
   end
 
+  resources :locations, only: %i[index]
+
   root to: 'static_pages#home'
 end
