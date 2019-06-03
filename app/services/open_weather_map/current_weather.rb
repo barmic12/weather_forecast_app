@@ -3,13 +3,16 @@
 module OpenWeatherMap
   class CurrentWeather < Client
     ENDPOINT = '/data/2.5/weather'
+    EXPIRATION = 1.hour
     def city_by_id(id)
-      response = request(
-                 :get,
-                 ENDPOINT,
-                 id: id
-      )
-      build_weather_object(response) if response['cod'] == HTTP_SUCCESS_CODE
+      @response = Rails.cache.fetch("city_weather/#{id}", expires_in: EXPIRATION) do
+        request(
+          :get,
+          ENDPOINT,
+          id: id
+        )
+      end
+      build_weather_object(@response) if @response['cod'] == HTTP_SUCCESS_CODE
     end
 
     private

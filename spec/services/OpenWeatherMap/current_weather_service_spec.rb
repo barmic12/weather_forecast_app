@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Current Weather API request' do
+  include ActiveSupport::Testing::TimeHelpers
   include CurrentWeatherFactory
   describe 'city_by_id' do
     let(:location) { create(:location) }
@@ -24,6 +25,17 @@ RSpec.describe 'Current Weather API request' do
     it 'returns data for given city' do
       data = api.city_by_id(location.api_id)
       expect(data.id).to eq(location.api_id.to_s)
+    end
+
+    it 'saves result to cache' do
+      data = api.city_by_id(location.api_id)
+      expect(Rails.cache.read("city_weather/#{location.api_id}")).to_not be_nil
+    end
+
+    it 'keep cache for an hour' do
+      data = api.city_by_id(location.api_id)
+      travel 61.minutes
+      expect(Rails.cache.read("city_weather/#{location.api_id}")).to be_nil
     end
   end
 end
