@@ -20,4 +20,8 @@ RSpec.describe User, type: :model do
     # https://github.com/thoughtbot/shoulda-matchers/blob/master/lib/shoulda/matchers/active_model/validate_presence_of_matcher.rb#L26
     #it { expect(user).to validate_presence_of(:password) }
   end
+
+  describe 'ActiveRecord associations' do
+    it { expect(user).to have_many(:locations).through(:follows) }
+  end
 end

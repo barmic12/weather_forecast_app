@@ -3,4 +3,7 @@ class Location < ApplicationRecord
             presence: true
 
   self.per_page = 10
+
+  has_many :follows
+  has_many :users, through: :follows
 end

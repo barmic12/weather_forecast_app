@@ -12,4 +12,8 @@ RSpec.describe Location, type: :model do
     it { expect(location).to validate_presence_of(:name) }
     it { expect(location).to validate_presence_of(:country) }
   end
+
+  describe 'ActiveRecord associations' do
+    it { expect(location).to have_many(:users).through(:follows) }
+  end
 end
