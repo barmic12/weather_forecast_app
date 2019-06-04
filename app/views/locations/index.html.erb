@@ -23,7 +23,8 @@
                   <td>
                     <%= location.name %>
                     <span class="hint-text">
-                      <%= subscribe_button(location) %>
+                      <%= link_to t('locations.index.follow'),
+                              follow_locations_path(location.id) %>
                     </span>
                   </td>
                   <td><%= location.country %></td>

@@ -5,9 +5,9 @@ class LocationsController < ApplicationController
   before_action :set_location, only: :follow
   before_action :set_follow, only: :unfollow
   def index
-    @locations = Location
-                 .where('lower(name) LIKE ?', "#{params[:query].try(:downcase)}%")
-                 .page(params[:page])
+    query = params[:query].try(:downcase)
+    @locations = Location.not_subscribed_by_user(query, current_user)
+                         .page(params[:page])
   end
 
   def following

@@ -34,4 +34,16 @@ RSpec.describe Location, type: :model do
       end
     end
   end
+
+  describe 'Scopes' do
+    describe 'not_subscribed_by_user' do
+      let(:user) { create(:user) }
+      it 'returns 1 location' do
+        location1 = create(:location)
+        location2 = create(:location)
+        create(:follow, location: location1, user: user)
+        expect(Location.not_subscribed_by_user(nil, user).length).to eq(1)
+      end
+    end
+  end
 end
