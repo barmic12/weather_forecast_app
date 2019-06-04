@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   before_action :set_follow, only: :unfollow
   def index
     @locations = Location
-                 .where('name LIKE ?', "#{params[:query]}%")
+                 .where('lower(name) LIKE ?', "#{params[:query].try(:downcase)}%")
                  .page(params[:page])
   end
 
