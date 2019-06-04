@@ -7,4 +7,8 @@ class Location < ApplicationRecord
 
   has_many :follows
   has_many :users, through: :follows
+
+  def belongs_to_user?(user)
+    Follow.find_by(location: self, user: user).present?
+  end
 end

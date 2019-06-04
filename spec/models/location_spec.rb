@@ -16,4 +16,20 @@ RSpec.describe Location, type: :model do
   describe 'ActiveRecord associations' do
     it { expect(location).to have_many(:users).through(:follows) }
   end
+
+  describe 'Methods' do
+    describe 'belongs_to_user?(user)' do
+      let(:user) { create(:user) }
+      it 'returns true if belongs to user' do
+        create(:follow, location: location, user: user)
+        expect(location.belongs_to_user?(user)).to be true
+      end
+
+      it 'returns false if not belongs to user' do
+        different_user = create(:user)
+        create(:follow, location: location, user: user)
+        expect(location.belongs_to_user?(different_user)).to be false
+      end
+    end
+  end
 end
