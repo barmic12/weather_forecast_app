@@ -10,32 +10,35 @@
   </head>
 
   <body>
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">WeatherForecastApp</h3>
-              <nav class="nav nav-masthead">
-                <%= link_to 'Home', root_path, class: 'nav-link active' %>
-                <%= account_navigation %>
-              </nav>
-
-            </div>
-          </div>
-          <div class="container">
-            <% flash.each do |key, value| %>
-              <div class="alert alert-<%= key %>"><%= value %></div>
-            <% end %>
-          </div>
-          <%= yield %>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">WeatherForecastApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item <%= active_class?(root_path) %>">
+              <%= link_to 'Home', root_path, class: 'nav-link'%>
+            </li>
+            <li class="nav-item <%= active_class?(locations_path) %>">
+              <%= link_to 'Browse cities', locations_path, class: 'nav-link'%>
+            </li>
+            <li class="nav-item <%= active_class?(following_locations_path) %>">
+              <%= link_to 'Subscribed', following_locations_path, class: 'nav-link'%>
+            </li>
+          </ul>
         </div>
-
       </div>
+    </nav>
 
+    <!-- Page Content -->
+    <div class="container">
+      <div class="vertical-center cover-container">
+        <%= yield %>
+      </div>
     </div>
+
   </body>
 </html>
