@@ -21,6 +21,14 @@ RSpec.describe User, type: :model do
     #it { expect(user).to validate_presence_of(:password) }
   end
 
+  describe 'Destroy user' do
+    it 'destroys belonging follows' do
+      user = create(:user)
+      create(:follow, user: user)
+      expect { user.destroy }.to change { Follow.count }.by(-1)
+    end
+  end
+
   describe 'ActiveRecord associations' do
     it { expect(user).to have_many(:locations).through(:follows) }
   end

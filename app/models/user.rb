@@ -12,6 +12,6 @@ class User < ApplicationRecord
   validates :password, confirmation: { case_sensitive: true }
   validates :password, length: { minimum: 8 }, allow_blank: true
 
-  has_many :follows
+  has_many :follows, dependent: :delete_all
   has_many :locations, through: :follows
 end

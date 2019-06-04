@@ -29,6 +29,9 @@
               <li class="nav-item <%= active_class?(following_locations_path) %>">
                 <%= link_to 'Subscribed', following_locations_path, class: 'nav-link'%>
               </li>
+              <li class="nav-item <%= active_class?(account_settings_path) %>">
+                <%= link_to 'Account settings', account_settings_path, class: 'nav-link'%>
+              </li>
             <% end %>
             <li class="nav-item">
               <%= account_navigation %>
