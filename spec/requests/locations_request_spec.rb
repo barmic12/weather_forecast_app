@@ -65,4 +65,32 @@ RSpec.describe 'Locations request', type: :request do
       end
     end
   end
+
+  describe 'DELETE #unfollow' do
+    let(:location) { create(:location) }
+    context 'for logged user' do
+      it 'destroys follow' do
+        log_in_user(user)
+        create(:follow, user: user, location: location)
+        expect { delete "/locations/unfollow/#{location.id}" }.to change { Follow.count }
+      end
+
+      it 'returns redirect status' do
+         delete "/locations/unfollow/#{location.id}"
+         expect(response).to have_http_status(:redirect)
+      end
+    end
+
+    context 'for unlogged user' do
+      it 'does not create new follow' do
+        create(:follow, location: location)
+        expect { delete "/locations/unfollow/#{location.id}" }.to_not change { Follow.count }
+      end
+
+      it 'returns redirect status' do
+         delete "/locations/unfollow/#{location.id}"
+         expect(response).to have_http_status(:redirect)
+      end
+    end
+  end
 end

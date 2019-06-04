@@ -28,16 +28,25 @@ en:
       remove_message: 'You have removed your account'
   locations:
     index:
-      header: 'Locations'
+      header: 'Cities'
       city: 'City'
       country: 'Country'
       follow: 'Follow'
+      unfollow: 'Unfollow'
       search: 'Search'
+    location:
+      not_found: 'Given location was not found'
     follow:
       success: 'You have subscribed new location'
-      validation_error: 'Error during adding new location'
+      failure: 'Error during adding new location'
       not_exists: 'Given location does not exist'
+      not_found: 'Given follow was not found'
+    unfollow:
+      success: 'You have unsubscribed location'
+      failure: 'Error during unsubscribing location'
     following:
+      header: 'Subscribed cities'
+      subscribe: 'Subscribe new city'
       weather:
         temperature: 'Temperature'
         pressure: 'Pressure'
