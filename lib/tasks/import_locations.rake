@@ -3,7 +3,7 @@
 task import_locations: :environment do
   require 'json'
 
-  file = File.read(File.join(Rails.root, 'lib', 'tasks', 'city.small.json'))
+  file = File.read(File.join(Rails.root, 'lib', 'tasks', 'city.list.json'))
   locations_hash = JSON.parse(file)
   locations = []
   locations_hash.each do |row|
