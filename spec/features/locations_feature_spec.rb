@@ -20,7 +20,8 @@ RSpec.describe 'Locations feature', type: :feature do
 
   feature 'Visitor add location to following' do
     before do
-      create(:location)
+      location = create(:location)
+      stub_current_weather(location)
     end
     scenario 'as logged user' do
       log_in
