@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HttpStatuses
   HTTP_SUCCESS_CODE = 200
   HTTP_BAD_REQUEST_CODE = 400

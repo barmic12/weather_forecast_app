@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module LocationsHelper
   def subscribe_button(location)
     if location.belongs_to_user?(current_user)

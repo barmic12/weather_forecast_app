@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 task import_locations: :environment do
   require 'json'
 

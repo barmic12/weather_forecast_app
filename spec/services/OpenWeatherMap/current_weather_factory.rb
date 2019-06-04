@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CurrentWeatherFactory
   def self.by_city_id(id)
   stubbed_json = {

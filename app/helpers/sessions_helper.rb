@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionsHelper
   def account_navigation
     if current_user
