@@ -38,7 +38,7 @@ RSpec.describe 'Registrations feature', type: :feature do
       fill_in :user_username, with: username
       fill_in :user_password, with: password
       fill_in :user_password_confirmation, with: password_confirmation
-      click_button 'Create User'
+      click_button I18n.t('registrations.form.create')
     end
   end
 end

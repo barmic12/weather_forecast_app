@@ -9,6 +9,10 @@ en:
     actions:
       new: 'New user'
       edit: 'Edit'
+  registrations:
+    form:
+      create: 'Create account'
+      has_account: 'Do you already have an account?'
   sessions:
     create: 'Login successfull'
     validation_error: 'Invalid username or password'
@@ -21,6 +25,7 @@ en:
       sign_in_or_sign_up: 'Sign in or sign up'
       not_registred: 'Not registred yet?'
       join: 'Join us'
+      sign_in: 'Sign in'
   account_settings:
     index:
       header: 'Account settings'

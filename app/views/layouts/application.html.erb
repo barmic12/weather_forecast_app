@@ -19,19 +19,29 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item <%= active_class?(root_path) %>">
-              <%= link_to 'Home', root_path, class: 'nav-link'%>
-            </li>
-            <li class="nav-item <%= active_class?(locations_path) %>">
-              <%= link_to 'Browse cities', locations_path, class: 'nav-link'%>
-            </li>
-            <li class="nav-item <%= active_class?(following_locations_path) %>">
-              <%= link_to 'Subscribed', following_locations_path, class: 'nav-link'%>
+            <% if current_user %>
+              <li class="nav-item <%= active_class?(root_path) %>">
+                <%= link_to 'Home', root_path, class: 'nav-link'%>
+              </li>
+              <li class="nav-item <%= active_class?(locations_path) %>">
+                <%= link_to 'Browse cities', locations_path, class: 'nav-link'%>
+              </li>
+              <li class="nav-item <%= active_class?(following_locations_path) %>">
+                <%= link_to 'Subscribed', following_locations_path, class: 'nav-link'%>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <%= account_navigation %>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    <div class="container mt-3">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
 
     <!-- Page Content -->
     <div class="container">
