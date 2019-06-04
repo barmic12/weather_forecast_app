@@ -16,7 +16,15 @@ module OpenWeatherMap
 
     def request(method, endpoint, params)
       response = self.class.public_send(method, endpoint, parse_options(params))
-      return response.parsed_response if response.code == HTTP_SUCCESS_CODE
+      return response.parsed_response
+    end
+
+    def build_error_message(code, message)
+      OpenStruct.new(
+        status: false,
+        code: code,
+        message: message
+      )
     end
 
     private

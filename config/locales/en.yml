@@ -37,3 +37,10 @@ en:
       success: 'You have subscribed new location'
       validation_error: 'Error during adding new location'
       not_exists: 'Given location does not exist'
+    following:
+      weather:
+        temperature: 'Temperature'
+        pressure: 'Pressure'
+        humidity: 'Humidity'
+        wind: 'Wind'
+        speed: 'Speed'

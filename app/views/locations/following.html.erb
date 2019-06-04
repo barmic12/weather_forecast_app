@@ -7,15 +7,11 @@
           <div class="card weather-card">
             <div class="card-body">
               <h3 class="text-center"><%= location.name %></h1>
-              <p>Temperature: <%= location.weather.main.temp %></p>
-              <p>Pressure: <%= location.weather.main.pressure %></p>
-              <p>Humidity: <%= location.weather.main.humidity %></p>
-
-              <h3>Wind</h3>
-              <p>Speed: <%= location.weather.wind.speed %></p>
-
-              <p>Weather forecast mockup </p>
-              <p><%= @message %>
+              <% if location.weather.status %>
+                <%= render 'current_weather', location: location %>
+              <% else %>
+                <p><%= location.weather.message %></p>
+              <% end %>
             </div>
           </div>
         </div>

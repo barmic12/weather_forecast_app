@@ -12,13 +12,19 @@ module OpenWeatherMap
           id: id
         )
       end
-      build_weather_object(@response) if @response['cod'] == HTTP_SUCCESS_CODE
+      if @response['cod'] == HTTP_SUCCESS_CODE
+        build_weather_object(@response)
+      else
+        build_error_message(@response['cod'], @response['message'])
+      end
     end
 
     private
 
     def build_weather_object(output)
       OpenStruct.new(
+        status:  true,
+        code:    output['cod'],
         main:    OpenStruct.new(output['main']),
         weather: OpenStruct.new(output['weather'][0]),
         coord:   OpenStruct.new(output['coord']),
